@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueElement" format=3 uid="uid://chh8qkwm712a6"]
+
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="1_mqa2c"]
+
+[resource]
+script = ExtResource("1_mqa2c")
+text = Array[String](["That's a mirror", "I don't really like looking at it", "But sometimes i do like looking at it", "It's just a reflection after all"])
+condition = "Mirror_not_centered"
+looping = true
+metadata/_custom_type_script = "uid://cid5rtcv1ingp"

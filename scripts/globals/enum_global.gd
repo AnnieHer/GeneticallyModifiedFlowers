@@ -1,0 +1,6 @@
+extends Node
+enum PETAL_TYPE{
+	ONE_SEGMENT = 0,
+	TWO_SEGMENT = 1,
+	THREE_SEGMENT = 2,
+}

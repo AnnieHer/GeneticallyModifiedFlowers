@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueElement" format=3 uid="uid://0u5u7eu40dt4"]
+
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="1_rehog"]
+
+[resource]
+script = ExtResource("1_rehog")
+text = Array[String](["That's me", "Still me", "Same old me", "I'm still here", "I'll always be here", "Yup, still me", "Me old same", "Same", "Same same", "Speaking of same, my name's Sam", "Still me"])
+condition = "Mirror_centered"
+metadata/_custom_type_script = "uid://cid5rtcv1ingp"

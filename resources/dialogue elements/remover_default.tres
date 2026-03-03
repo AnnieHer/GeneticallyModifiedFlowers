@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueElement" format=3 uid="uid://cuavn8pnap2tv"]
+
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="1_tpkj3"]
+
+[resource]
+script = ExtResource("1_tpkj3")
+text = Array[String](["It's a flower remover, guess what it does", "It disintegrates flowers", "...", "Kinda sad to see flowers go"])
+metadata/_custom_type_script = "uid://cid5rtcv1ingp"

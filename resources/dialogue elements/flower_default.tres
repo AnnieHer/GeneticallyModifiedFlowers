@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueElement" format=3 uid="uid://idexmunarpkk"]
+
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="1_ym036"]
+
+[resource]
+script = ExtResource("1_ym036")
+text = Array[String](["It looks pretty!", "I like it", "I wonder what it smells like", "Flower", "Pretty...", "I wonder...", "Hehe..."])
+looping = true
+metadata/_custom_type_script = "uid://cid5rtcv1ingp"

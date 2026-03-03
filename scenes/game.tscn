@@ -1,0 +1,240 @@
+[gd_scene format=3 uid="uid://h1d8muj1lg5t"]
+
+[ext_resource type="Texture2D" uid="uid://cairakhwv0s0g" path="res://materials/generator.png" id="3_kvuet"]
+[ext_resource type="Script" uid="uid://ddi000b76ix3u" path="res://scripts/player/camera_controls.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://dgw6usrqtjab3" path="res://scripts/flower/flower_field.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://b11mutlqn1i0a" path="res://scripts/object interface/slots_flower_combiner.gd" id="4_iywne"]
+[ext_resource type="Script" uid="uid://bv0cccwwm2uhk" path="res://scripts/object interactions/object_slot.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://c161m8k3m0ose" path="res://scripts/object interface/slots_flower_delete.gd" id="5_0tnpc"]
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="5_ca42v"]
+[ext_resource type="Texture2D" uid="uid://fkmd5lliegil" path="res://materials/bg_back_smashed.png" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://on8bno3u8y4d" path="res://scenes/background.gd" id="6_gee14"]
+[ext_resource type="Resource" uid="uid://cpfa4f2tfrq6g" path="res://resources/dialogue elements/generator_default.tres" id="6_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://t7ah3flkqbd0" path="res://materials/slot.png" id="6_trtic"]
+[ext_resource type="Texture2D" uid="uid://bhkbgmlbkmwa1" path="res://materials/bg_front_smashed.png" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://tayynlil55js" path="res://materials/char.png" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://datlerdkjyqf4" path="res://materials/remover.png" id="8_ir15t"]
+[ext_resource type="Resource" uid="uid://bctk4ytgncsaf" path="res://resources/dialogue elements/combiner_default.tres" id="10_264po"]
+[ext_resource type="AudioStream" uid="uid://cyll3ucbk3lgr" path="res://materials/ambience.mp3" id="10_vtaks"]
+[ext_resource type="Resource" uid="uid://cuavn8pnap2tv" path="res://resources/dialogue elements/remover_default.tres" id="13_264po"]
+[ext_resource type="Script" uid="uid://kwkksclhpuir" path="res://scripts/player/volume_control.gd" id="14_trtic"]
+[ext_resource type="Script" uid="uid://dy4fjp7pg2blk" path="res://scripts/object interactions/dialogue_interface.gd" id="15_ir15t"]
+[ext_resource type="Script" uid="uid://cn0a7ykocpvdf" path="res://scenes/mirror.gd" id="20_37s47"]
+[ext_resource type="Resource" uid="uid://0u5u7eu40dt4" path="res://resources/dialogue elements/mirror_dialogue_me.tres" id="21_bt5mj"]
+[ext_resource type="Resource" uid="uid://chh8qkwm712a6" path="res://resources/dialogue elements/mirror_dialogue_object.tres" id="22_e1j6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvqc"]
+size = Vector2(162, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kice"]
+size = Vector2(418, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5newe"]
+size = Vector2(148, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl11u"]
+size = Vector2(418, 474)
+
+[node name="GAME" type="Node" unique_id=1874113256]
+
+[node name="WORLD" type="Node2D" parent="." unique_id=909935519]
+
+[node name="Camera2D" type="Camera2D" parent="WORLD" unique_id=461699559]
+unique_name_in_owner = true
+z_index = 6
+script = ExtResource("3_lbhrr")
+
+[node name="GENERATOR" type="Node2D" parent="WORLD" unique_id=353433387 node_paths=PackedStringArray("button")]
+z_index = 1
+position = Vector2(-505, 256)
+script = ExtResource("3_lnu2h")
+button = NodePath("Button")
+
+[node name="Button" type="Button" parent="WORLD/GENERATOR" unique_id=1853602069]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = 24.0
+offset_right = 22.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEW"
+
+[node name="Sprite2D" type="Sprite2D" parent="WORLD/GENERATOR" unique_id=513407243]
+position = Vector2(0, -48)
+texture = ExtResource("3_kvuet")
+
+[node name="Dialogue" type="Area2D" parent="WORLD/GENERATOR" unique_id=1237480811]
+z_index = 7
+position = Vector2(2, 40)
+script = ExtResource("15_ir15t")
+dialogue_options = Array[ExtResource("5_ca42v")]([ExtResource("6_ssvqc")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WORLD/GENERATOR/Dialogue" unique_id=61610742]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_ssvqc")
+
+[node name="COMBINER" type="Node2D" parent="WORLD" unique_id=1479926339 node_paths=PackedStringArray("button", "slot1", "slot2")]
+z_index = 1
+position = Vector2(0, 209)
+script = ExtResource("4_iywne")
+button = NodePath("Button")
+slot1 = NodePath("Slot1")
+slot2 = NodePath("Slot2")
+
+[node name="Button" type="Button" parent="WORLD/COMBINER" unique_id=472565371]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = 63.0
+offset_right = 58.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MIX"
+
+[node name="Slot1" type="Area2D" parent="WORLD/COMBINER" unique_id=1734938450]
+position = Vector2(-150, 41)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="Slot2" type="Area2D" parent="WORLD/COMBINER" unique_id=635899548]
+position = Vector2(150, 41)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="WORLD/COMBINER" unique_id=662721502]
+position = Vector2(-153, 0)
+texture = ExtResource("6_trtic")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WORLD/COMBINER" unique_id=1159225461]
+position = Vector2(152, 0)
+texture = ExtResource("6_trtic")
+
+[node name="Sprite2D3" type="Sprite2D" parent="WORLD/COMBINER" unique_id=684461052]
+texture = ExtResource("3_kvuet")
+
+[node name="Dialogue" type="Area2D" parent="WORLD/COMBINER" unique_id=1709062300]
+z_index = 7
+position = Vector2(-1, 84)
+script = ExtResource("15_ir15t")
+dialogue_options = Array[ExtResource("5_ca42v")]([ExtResource("10_264po")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WORLD/COMBINER/Dialogue" unique_id=1245336021]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="REMOVER" type="Node2D" parent="WORLD" unique_id=337763758 node_paths=PackedStringArray("button", "slot1")]
+z_index = 1
+position = Vector2(527, 209)
+script = ExtResource("5_0tnpc")
+button = NodePath("Button")
+slot1 = NodePath("Slot1")
+
+[node name="Button" type="Button" parent="WORLD/REMOVER" unique_id=97355199]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = 65.0
+offset_right = 58.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DELETE"
+
+[node name="Slot1" type="Area2D" parent="WORLD/REMOVER" unique_id=1271011818]
+position = Vector2(-2, 42)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="WORLD/REMOVER" unique_id=446942015]
+texture = ExtResource("8_ir15t")
+
+[node name="Dialogue" type="Area2D" parent="WORLD/REMOVER" unique_id=1262279928]
+z_index = 7
+position = Vector2(-1, 84)
+script = ExtResource("15_ir15t")
+dialogue_options = Array[ExtResource("5_ca42v")]([ExtResource("13_264po")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WORLD/REMOVER/Dialogue" unique_id=301934639]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_5newe")
+
+[node name="BACK" type="Sprite2D" parent="WORLD" unique_id=460671277]
+z_index = -2
+texture_filter = 1
+position = Vector2(-1426, -468)
+scale = Vector2(4, 4)
+texture = ExtResource("5_p57ef")
+script = ExtResource("6_gee14")
+amount = -0.575
+
+[node name="CHAR" type="Sprite2D" parent="WORLD" unique_id=1964945927]
+z_index = -1
+texture_filter = 1
+position = Vector2(-65, 187)
+scale = Vector2(4, 4)
+texture = ExtResource("7_gee14")
+script = ExtResource("6_gee14")
+
+[node name="FRONT" type="Sprite2D" parent="WORLD" unique_id=1402469660]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_u5sy4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WORLD" unique_id=2127421033]
+stream = ExtResource("10_vtaks")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("14_trtic")
+
+[node name="MIRROR" type="Node2D" parent="WORLD" unique_id=291067411]
+position = Vector2(-726, -249)
+script = ExtResource("20_37s47")
+
+[node name="Dialogue2" type="Area2D" parent="WORLD/MIRROR" unique_id=958180609]
+z_index = 7
+script = ExtResource("15_ir15t")
+dialogue_options = Array[ExtResource("5_ca42v")]([ExtResource("21_bt5mj"), ExtResource("22_e1j6l")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WORLD/MIRROR/Dialogue2" unique_id=44056821]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pl11u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=582486816]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1759064222]
+offset_left = 1034.0
+offset_top = 5.0
+offset_right = 1082.0
+offset_bottom = 21.0
+text = "volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer" unique_id=1503473925]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 24.0
+offset_bottom = 40.0
+grow_horizontal = 0
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.09999999999999999
+
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="WORLD/AudioStreamPlayer" method="_on_slider_value_changed"]

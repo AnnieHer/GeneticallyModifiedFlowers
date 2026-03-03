@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://u155v5yx3ye2"]
+
+[ext_resource type="Script" uid="uid://t3cq2fimdcrw" path="res://scripts/player/player_controls.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2o6t"]
+radius = 13.975
+height = 55.88
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_feb5d"]
+
+[node name="Player" type="CharacterBody2D" unique_id=723576993]
+visible = false
+script = ExtResource("1_3vyb7")
+max_speed = 300.0
+damping = 0.85
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1679582547]
+shape = SubResource("CapsuleShape2D_e2o6t")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1350952081]
+scale = Vector2(27.999998, 28.000002)
+mesh = SubResource("CapsuleMesh_feb5d")

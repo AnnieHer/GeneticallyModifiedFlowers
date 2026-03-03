@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueElement" format=3 uid="uid://cpfa4f2tfrq6g"]
+
+[ext_resource type="Script" uid="uid://cid5rtcv1ingp" path="res://scripts/object interactions/DialogueElement.gd" id="1_fa17y"]
+
+[resource]
+script = ExtResource("1_fa17y")
+text = Array[String](["It's a flower generator.
+It generates flowers.", "I like seeing new flowers", "Even those with one or two petals", "I never wondered how it generates flowers tho", "Maybe it grabs one from the wilderness", "Yeah, probably, it's a radioactive wasteland out there, no wonder some flowers are weird", "I like my flower generator"])
+metadata/_custom_type_script = "uid://cid5rtcv1ingp"

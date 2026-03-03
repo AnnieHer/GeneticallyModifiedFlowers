@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://h1d8muj1lg5t"]
+
+[ext_resource type="Script" uid="uid://ddi000b76ix3u" path="res://scripts/player/camera_controls.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://dgw6usrqtjab3" path="res://scripts/flower/flower_field.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://b11mutlqn1i0a" path="res://scripts/object interface/slots_flower_combiner.gd" id="4_iywne"]
+[ext_resource type="Script" uid="uid://bv0cccwwm2uhk" path="res://scripts/object interactions/object_slot.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://c161m8k3m0ose" path="res://scripts/object interface/slots_flower_delete.gd" id="5_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://fkmd5lliegil" path="res://materials/bg_back_smashed.png" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://on8bno3u8y4d" path="res://scenes/background.gd" id="6_gee14"]
+[ext_resource type="Texture2D" uid="uid://bhkbgmlbkmwa1" path="res://materials/bg_front_smashed.png" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://tayynlil55js" path="res://materials/char.png" id="7_gee14"]
+[ext_resource type="AudioStream" uid="uid://cyll3ucbk3lgr" path="res://materials/ambience.mp3" id="10_vtaks"]
+
+[node name="GAME" type="Node" unique_id=1874113256]
+
+[node name="UI" type="Control" parent="." unique_id=1025379660]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WORLD" type="Node2D" parent="." unique_id=909935519]
+
+[node name="Camera2D" type="Camera2D" parent="WORLD" unique_id=461699559]
+unique_name_in_owner = true
+script = ExtResource("3_lbhrr")
+
+[node name="FlowerField" type="Node2D" parent="WORLD" unique_id=353433387 node_paths=PackedStringArray("button")]
+z_index = 1
+position = Vector2(-489, 262)
+script = ExtResource("3_lnu2h")
+button = NodePath("Button")
+
+[node name="Button" type="Button" parent="WORLD/FlowerField" unique_id=1853602069]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEW"
+
+[node name="FlowerCombiner" type="Node2D" parent="WORLD" unique_id=1479926339 node_paths=PackedStringArray("button", "slot1", "slot2")]
+z_index = 1
+position = Vector2(0, 264)
+script = ExtResource("4_iywne")
+button = NodePath("Button")
+slot1 = NodePath("Slot1")
+slot2 = NodePath("Slot2")
+
+[node name="Button" type="Button" parent="WORLD/FlowerCombiner" unique_id=472565371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -20.0
+offset_right = 58.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MIX"
+
+[node name="Slot1" type="Area2D" parent="WORLD/FlowerCombiner" unique_id=1734938450]
+position = Vector2(-150, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="Slot2" type="Area2D" parent="WORLD/FlowerCombiner" unique_id=635899548]
+position = Vector2(150, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="FlowerCombiner2" type="Node2D" parent="WORLD" unique_id=337763758 node_paths=PackedStringArray("button", "slot1")]
+z_index = 1
+position = Vector2(527, 264)
+script = ExtResource("5_0tnpc")
+button = NodePath("Button")
+slot1 = NodePath("Slot1")
+
+[node name="Button" type="Button" parent="WORLD/FlowerCombiner2" unique_id=97355199]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -20.0
+offset_right = 58.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DELETE"
+
+[node name="Slot1" type="Area2D" parent="WORLD/FlowerCombiner2" unique_id=1271011818]
+position = Vector2(65, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_lbhrr")
+dispose_position = Vector2(0, -300)
+
+[node name="BACK" type="Sprite2D" parent="WORLD" unique_id=460671277]
+z_index = -2
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_p57ef")
+script = ExtResource("6_gee14")
+amount = -0.575
+
+[node name="CHAR" type="Sprite2D" parent="WORLD" unique_id=1964945927]
+z_index = -1
+texture_filter = 1
+position = Vector2(-65, 187)
+scale = Vector2(4, 4)
+texture = ExtResource("7_gee14")
+script = ExtResource("6_gee14")
+
+[node name="FRONT" type="Sprite2D" parent="WORLD" unique_id=1402469660]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_u5sy4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WORLD" unique_id=2127421033]
+stream = ExtResource("10_vtaks")
+volume_db = -17.333
+autoplay = true
+parameters/looping = true
