@@ -13,7 +13,7 @@ config_version=5
 config/name="Genetically Modified Flowers"
 run/main_scene="uid://h1d8muj1lg5t"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cb3vpxa8wusuv"
 
 [autoload]
 
@@ -83,3 +83,5 @@ camera_drag={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
